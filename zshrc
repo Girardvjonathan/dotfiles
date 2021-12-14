@@ -74,6 +74,8 @@ alias up="git pull; reup"
 alias reup='dev down; dev up && TDD=0 dev server'
 alias devup='dev up && TDD=0 dev server'
 
+alias setup_filtering="cd ~/src/github.com/Shopify/shopify && bin/rails discovery:setup_storefront_facets && cd ~/src/github.com/Shopify/storefront-renderer && reindex"
+
 ## spin specific
 alias core_stop="systemctl stop proc-shopify--shopify@server.service"
 alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
