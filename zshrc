@@ -1,6 +1,4 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+## oh-my-zsh config
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_DISABLE_COMPFIX=true
@@ -23,6 +21,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+## END oh-my-zsh config
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,7 +98,5 @@ tsimple(){
   dev test "$1" | grep 'ERROR\|assertions\|FAIL'
 }
 ## End shopify
-
-source /Users/john/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)

@@ -17,6 +17,6 @@ ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 #ln -sf ~/dotfiles/bashrc ~/.bashrc
 
 
-if [ "$SPIN" ]; then
-  ECHO "hi"
-fi
+#if [ "$SPIN" ]; then
+#  ECHO "hi"
+#fi
