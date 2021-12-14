@@ -16,3 +16,6 @@
 	insteadOf = ssh://git@github.com/shopify/
 [pull]
 	ff = only
+[user]
+	name = Jonathan Girard-Viau
+	email = jonathan.girardviau@shopify.com
