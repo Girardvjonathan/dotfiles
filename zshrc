@@ -75,8 +75,8 @@ alias reup='dev down; dev up && TDD=0 dev server'
 alias devup='dev up && TDD=0 dev server'
 
 ## spin specific
-alias stop_core="systemctl stop proc-shopify--shopify@server.service"
-alias stop_sfr="systemctl stop proc-shopify--storefront-renderer@server.service"
+alias core_stop="systemctl stop proc-shopify--shopify@server.service"
+alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
 alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
 alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
 
