@@ -74,6 +74,19 @@ alias up="git pull; reup"
 alias reup='dev down; dev up && TDD=0 dev server'
 alias devup='dev up && TDD=0 dev server'
 
+## spin specific
+alias stop_core="systemctl stop proc-shopify--shopify@server.service"
+alias stop_sfr="systemctl stop proc-shopify--storefront-renderer@server.service"
+alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
+alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
+
+# use with an arg to create a spin instance for a specific branch name
+spin_create_branch(){
+    spin create storefront-renderer@"$1" --name "$1"
+}
+
+## end spin
+
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 if [ -e /Users/john/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/john/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
