@@ -77,6 +77,8 @@ alias setup_filtering="cd ~/src/github.com/Shopify/shopify && bin/rails discover
 
 ## spin specific
 alias core_stop="systemctl stop proc-shopify--shopify@server.service"
+alias core_restart="systemctl restart proc-shopify--shopify@server.service"
+alias sfr_restart="systemctl restart proc-shopify--storefront-renderer@server.service"
 alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
 alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
 alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
