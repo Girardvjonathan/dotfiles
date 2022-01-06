@@ -58,7 +58,8 @@ cob(){
 gcmessage(){
  git commit -m"$1"
 }
-
+alias create_pr="gh pr create -w"
+alias pr="gh pr view --web"
 ## End GIT alias
 
 ## Shopify Project specific
