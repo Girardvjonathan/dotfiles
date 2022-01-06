@@ -63,12 +63,10 @@ alias pr="gh pr view --web"
 ## End GIT alias
 
 ## Shopify Project specific
-alias pr="dev open pr"
 alias sfr="dev cd storefront-renderer"
 alias reindex="bundle exec rake elasticsearch:all"
 alias t="dev test"
 alias testb='dev test --include-branch-commits'
-alias pr='dev open pr'
 alias styleb="dev style --include-branch-commits"
 alias tc="dev typecheck"
 alias up="git pull; reup"
