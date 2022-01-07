@@ -60,10 +60,12 @@ gcmessage(){
 }
 alias create_pr="gh pr create -w"
 alias pr="gh pr view --web"
+alias repo="gh repo view --web"
 ## End GIT alias
 
 ## Shopify Project specific
 alias sfr="dev cd storefront-renderer"
+alias core="dev cd shopify"
 alias reindex="bundle exec rake elasticsearch:all"
 alias t="dev test"
 alias testb='dev test --include-branch-commits'
@@ -73,7 +75,7 @@ alias up="git pull; reup"
 alias reup='dev down; dev up && TDD=0 dev server'
 alias devup='dev up && TDD=0 dev server'
 
-alias setup_filtering="cd ~/src/github.com/Shopify/shopify && bin/rails discovery:setup_storefront_facets && cd ~/src/github.com/Shopify/storefront-renderer && reindex"
+alias setup_filtering="cd ~/src/github.com/Shopify/shopify; bin/rails discovery:setup_storefront_facets"
 
 ## spin specific
 alias core_stop="systemctl stop proc-shopify--shopify@server.service"
