@@ -89,9 +89,10 @@ alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
 spin_create_branch(){
     spin create storefront-renderer@"$1" --name "$1"
 }
-alias nuke_sfr="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
+alias sfr_nuke="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
 alias sc="systemctl"
 alias list_units="sc list-units"
+alias sfr_update="update shopify--storefront-renderer"
 ## end spin
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
