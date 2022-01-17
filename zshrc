@@ -85,6 +85,8 @@ alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
 alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
 alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
 
+alias kill_server="kill -9 $(cat tmp/pids/server.pid)"
+
 # use with an arg to create a spin instance for a specific branch name
 spin_create_branch(){
     spin create storefront-renderer@"$1" --name "$1"
