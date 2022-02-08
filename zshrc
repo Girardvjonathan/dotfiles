@@ -84,6 +84,7 @@ alias sfr_restart="systemctl restart proc-shopify--storefront-renderer@server.se
 alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
 alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
 alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
+alias disco_logs="journalctl -fu proc-shopify--discovery-app@server.service"
 
 alias kill_server="kill -9 $(cat tmp/pids/server.pid)"
 
