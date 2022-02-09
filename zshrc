@@ -94,7 +94,11 @@ spin_create_branch(){
 }
 alias sfr_nuke="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
 alias sc="systemctl"
+alias jc="journalctl"
 alias list_units="sc list-units"
+alias failed="systemctl list-units --failed"
+alias disco_status="sc list-units | grep -i discovery-app"
+alias disco="ECHO proc-shopify--discovery-app@server.service"
 alias sfr_update="update shopify--storefront-renderer"
 ## end spin
 
