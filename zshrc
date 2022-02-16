@@ -58,12 +58,14 @@ cob(){
 gcmessage(){
  git commit -m"$1"
 }
-alias create_pr="gh pr create -w"
-alias pr="gh pr view --web"
+alias pr="dev open pr"
 alias repo="gh repo view --web"
 ## End GIT alias
 
 ## Shopify Project specific
+disco-branch(){
+ spin up shopify,discovery-app@$1 --metadata SPIN_SPLIT_NGINX_CONFIG=1
+}
 alias sfr="dev cd storefront-renderer"
 alias core="dev cd shopify"
 alias reindex="bundle exec rake elasticsearch:all"
@@ -86,13 +88,11 @@ alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
 alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
 alias disco_logs="journalctl -fu proc-shopify--discovery-app@server.service"
 
-alias kill_server="kill -9 $(cat tmp/pids/server.pid)"
-
 # use with an arg to create a spin instance for a specific branch name
 spin_create_branch(){
     spin create storefront-renderer@"$1" --name "$1"
 }
-alias sfr_nuke="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
+# alias sfr_nuke="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
 alias sc="systemctl"
 alias jc="journalctl"
 alias list_units="sc list-units"
