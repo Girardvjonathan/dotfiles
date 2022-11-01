@@ -58,58 +58,7 @@ cob(){
 gcmessage(){
  git commit -m"$1"
 }
-alias pr="dev open pr"
 alias repo="gh repo view --web"
 ## End GIT alias
-
-## Shopify Project specific
-disco-branch(){
- spin up shopify,discovery-app@$1 --metadata SPIN_SPLIT_NGINX_CONFIG=1
-}
-alias sfr="dev cd storefront-renderer"
-alias core="dev cd shopify"
-alias reindex="bundle exec rake elasticsearch:all"
-alias t="dev test"
-alias testb='dev test --include-branch-commits'
-alias styleb="dev style --include-branch-commits"
-alias tc="dev typecheck"
-alias up="git pull; reup"
-alias reup='dev down; dev up && TDD=0 dev server'
-alias devup='dev up && TDD=0 dev server'
-
-alias setup_filtering="cd ~/src/github.com/Shopify/shopify; bin/rails discovery:setup_storefront_facets"
-
-## spin specific
-alias core_stop="systemctl stop proc-shopify--shopify@server.service"
-alias core_restart="systemctl restart proc-shopify--shopify@server.service"
-alias sfr_restart="systemctl restart proc-shopify--storefront-renderer@server.service"
-alias sfr_stop="systemctl stop proc-shopify--storefront-renderer@server.service"
-alias sfr_logs="journalctl -fu proc-shopify--storefront-renderer@server.service"
-alias core_logs="journalctl -fu proc-shopify--shopify@server.service"
-alias disco_logs="journalctl -fu proc-shopify--discovery-app@server.service"
-
-# use with an arg to create a spin instance for a specific branch name
-spin_create_branch(){
-    spin create storefront-renderer@"$1" --name "$1"
-}
-# alias sfr_nuke="kill -9 $(ps afx | grep puma | grep storefront-renderer | cut -d ' ' -f 3) systemctl restart proc-shopify--storefront-renderer@server.service"
-alias sc="systemctl"
-alias jc="journalctl"
-alias list_units="sc list-units"
-alias failed="systemctl list-units --failed"
-alias disco_status="sc list-units | grep -i discovery-app"
-alias disco="ECHO proc-shopify--discovery-app@server.service"
-alias sfr_update="update shopify--storefront-renderer"
-## end spin
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
-if [ -e /Users/john/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/john/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
-
-tsimple(){
-  dev test "$1" | grep 'ERROR\|assertions\|FAIL'
-}
-## End shopify
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
