@@ -2,7 +2,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_DISABLE_COMPFIX=true
-ZSH_THEME="agnoster"
+ZSH_THEME="steeef"
 DISABLE_UPDATE_PROMPT="true"
 export UPDATE_ZSH_DAYS=10
 # Uncomment the following line if you want to disable marking untracked files
@@ -19,9 +19,8 @@ plugins=(
   git
   zsh-syntax-highlighting
 )
-
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ## END oh-my-zsh config
 
 # You may need to manually set your language environment
