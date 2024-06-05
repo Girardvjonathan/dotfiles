@@ -11,3 +11,5 @@
 [user]
 	name = Jonathan Girard-Viau
 	email = jonathan.girardviau@elevatelabs.com
+[push]
+	autoSetupRemote = true

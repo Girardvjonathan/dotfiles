@@ -8,7 +8,8 @@ fi
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# brew install zsh-syntax-highlighting
+brew install zsh-syntax-highlighting
+brew install gh
 
 ## simlink files
 ln -sf ~/dotfiles/zshrc ~/.zshrc

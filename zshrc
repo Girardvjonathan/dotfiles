@@ -46,7 +46,7 @@ alias gb="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(
 alias amend='git commit --amend --no-edit'
 alias gl='git log --oneline -n 8'
 alias pull="git pull"
-
+alias pr="gh pr create --web"
 cob(){
   local branches branch
   branches=$(git branch -vv) &&
@@ -61,3 +61,8 @@ alias repo="gh repo view --web"
 ## End GIT alias
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+source /Users/john/.config/elevate/config.sh
+eval "$(rbenv init -)";
+eval "$(fnm env --use-on-cd)"
+export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+eval "$(direnv hook zsh)"
