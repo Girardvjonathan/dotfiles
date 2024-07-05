@@ -16,6 +16,8 @@ export UPDATE_ZSH_DAYS=10
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  rails
+  rake
   git
   zsh-syntax-highlighting
 )
@@ -23,16 +25,16 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 ## END oh-my-zsh config
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export EDITOR=code
+export VISUAL="$EDITOR"
 
 alias edit_config="vi ~/.zshrc"
 alias save_config="source ~/.zshrc"
 
+
+loop_test(){
+for i in {1..10}; do bundle exec rspec $1; done
+}
 ## GIT alias
 alias force-push="git push --force-with-lease"
 alias push="git push"
@@ -66,3 +68,17 @@ eval "$(rbenv init -)";
 eval "$(fnm env --use-on-cd)"
 export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
 eval "$(direnv hook zsh)"
+
+## Elevate
+path+=('./bin')
+alias lint='git diff-tree -r --no-commit-id --name-only main@\{u\} head | xargs ls -1 2>/dev/null | xargs bin/standardrb --force-exclusion --fix'
+alias stg_console='heroku run bash -a elevate-billing-staging'
+alias prd_console='heroku run bash -a elevate-billing-production'
+# rbenv / pyenv setup
+eval "$(rbenv init - zsh)"
+eval "$(pyenv init -)"
+# Java/Android setup
+export ANDROID_HOME="/Users/john/Library/Android/sdk"
+export ANDROID_TOOLS_HOME="$ANDROID_HOME/platform-tools"
+export PATH="$ANDROID_TOOLS_HOME:$ANDROID_HOME:$ANDROID_HOME/ndk/20.1.5948944:$PATH"
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
