@@ -10,6 +10,7 @@ fi
 
 brew install zsh-syntax-highlighting
 brew install gh
+brew install fzf
 
 ## simlink files
 ln -sf ~/dotfiles/zshrc ~/.zshrc

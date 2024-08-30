@@ -25,7 +25,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 ## END oh-my-zsh config
 
-export EDITOR=code
+export EDITOR="vim"
 export VISUAL="$EDITOR"
 
 alias edit_config="vi ~/.zshrc"
@@ -71,9 +71,15 @@ eval "$(direnv hook zsh)"
 
 ## Elevate
 path+=('./bin')
-alias lint='git diff-tree -r --no-commit-id --name-only main@\{u\} head | xargs ls -1 2>/dev/null | xargs bin/standardrb --force-exclusion --fix'
-alias stg_console='heroku run bash -a elevate-billing-staging'
-alias prd_console='heroku run bash -a elevate-billing-production'
+alias lint='git diff HEAD --name-only | xargs ls -1 2>/dev/null | xargs bin/standardrb --force-exclusion --fix'
+
+
+alias billing_stg_console='heroku run rails c -a elevate-billing-staging'
+alias billing_prd_console='heroku run rails c -a elevate-billing-production'
+
+alias balance_stg_console='heroku run rails c -a elevate-coruscant-staging'
+alias balance_prd_console='heroku run rails c -a elevate-coruscant-production'
+
 # rbenv / pyenv setup
 eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
@@ -82,3 +88,6 @@ export ANDROID_HOME="/Users/john/Library/Android/sdk"
 export ANDROID_TOOLS_HOME="$ANDROID_HOME/platform-tools"
 export PATH="$ANDROID_TOOLS_HOME:$ANDROID_HOME:$ANDROID_HOME/ndk/20.1.5948944:$PATH"
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+
+
+source <(fzf --zsh)
