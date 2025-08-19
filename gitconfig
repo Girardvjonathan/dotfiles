@@ -1,3 +1,7 @@
+[credential]
+	helper = 
+	helper = store --file /opt/dev/var/private/git_credential_store
+	helper = 
 [core]
 	commitGraph = true
 [diff]
@@ -10,7 +14,7 @@
 	ff = only
 [user]
 	name = Jonathan Girard-Viau
-	email = jonathan.girardviau@elevatelabs.com
+	email = girardvjonathan@gmail.com
 [push]
 	autoSetupRemote = true
 [credential]
@@ -19,6 +23,12 @@
 	useHttpPath = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[http]
+	postBuffer = 157286400
+[init]
+	defaultBranch = main

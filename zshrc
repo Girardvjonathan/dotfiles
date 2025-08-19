@@ -21,7 +21,6 @@ plugins=(
   git
   zsh-syntax-highlighting
 )
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 ## END oh-my-zsh config
 
@@ -65,13 +64,13 @@ alias repo="gh repo view --web"
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 source /Users/john/.config/elevate/config.sh
 eval "$(rbenv init -)";
-eval "$(fnm env --use-on-cd)"
 export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
 eval "$(direnv hook zsh)"
 
 ## Elevate
 path+=('./bin')
-alias lint='git diff HEAD --name-only | xargs ls -1 2>/dev/null | xargs bin/standardrb --force-exclusion --fix'
+alias lint='git diff HEAD --name-only | xargs ls -1 2>/dev/null | xargs bin/rubocop -a'
+alias android_dev='open -a android\ studio'
 
 
 alias billing_stg_console='heroku run rails c -a elevate-billing-staging'
@@ -80,14 +79,25 @@ alias billing_prd_console='heroku run rails c -a elevate-billing-production'
 alias balance_stg_console='heroku run rails c -a elevate-coruscant-staging'
 alias balance_prd_console='heroku run rails c -a elevate-coruscant-production'
 
+eval "$(direnv hook zsh)"
+
+## End Elevate
+
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+alias musescore="npx dl-librescore@latest"
+source /Users/john/.config/elevate/config.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # rbenv / pyenv setup
 eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 # Java/Android setup
 export ANDROID_HOME="/Users/john/Library/Android/sdk"
 export ANDROID_TOOLS_HOME="$ANDROID_HOME/platform-tools"
+export PATH="$ANDROID_TOOLS_HOME:$ANDROID_HOME:$ANDROID_HOME/ndk/27.0.12077973:$PATH"
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export PATH="$ANDROID_TOOLS_HOME:$ANDROID_HOME:$ANDROID_HOME/ndk/20.1.5948944:$PATH"
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
-
-
-source <(fzf --zsh)
